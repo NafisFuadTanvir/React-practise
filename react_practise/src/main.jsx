@@ -5,4 +5,4 @@ import ReactDOM from 'react-dom/client'
 import Newcart from './Newcart.jsx';
 
 
-ReactDOM.createRoot(document.getElementById('root')).render(<Newcart></Newcart>);
+ReactDOM.createRoot(document.getElementById('root')).render(<APP></APP>);
