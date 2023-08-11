@@ -1,9 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import { useState } from 'react';
-import Numberfield from './Components/Ui/Numberfield';
 
-import Button from './Components/Ui/Button';
 /*
 1: handle input data field
 2: handle operations
@@ -13,8 +11,8 @@ import Button from './Components/Ui/Button';
 */
 
 const initialstate= {
-  a:20,
-  b:30,
+  a:0,
+  b:0
 };
 
 
@@ -115,20 +113,15 @@ function App() {
 
   <div>
     <p>Inputs</p>
-    <Numberfield value={inputstate.a} name='a'  onChange={handleinputfields} />
-    <Numberfield  value={inputstate.b} name ='b' onChange={handleinputfields} />
+    <input type="number" value={inputstate.a} name='a'  onChange={handleinputfields} />
+    <input type="number" value={inputstate.b} name ='b' onChange={handleinputfields} />
   </div>
 
   <div>
     <p>Operations</p>
-
-    <Button text={'+'} onClick={()=> handleArithmaticops('+')}></Button>
-    <Button text={'-'} onClick={()=> handleArithmaticops('-')}></Button>
-    <Button text={'*'} onClick={()=> handleArithmaticops('*')}></Button>
-{/*     
     <button onClick={()=> handleArithmaticops('+')}>+</button>
     <button onClick={()=> handleArithmaticops('-')}>-</button>
-    <button onClick={()=> handleArithmaticops('*')}>*</button> */}
+    <button onClick={()=> handleArithmaticops('*')}>*</button>
     <button onClick={()=> handleArithmaticops('/')}>/</button>
     <button onClick={()=> handleArithmaticops('%')}>%</button>
     <button onClick={ handleClearops}>clear</button>
