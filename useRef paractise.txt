@@ -1,0 +1,36 @@
+import React from 'react';
+import {useRef} from 'react';
+export function App(props) {
+
+  let firstname,middlename,lastname= useRef();
+
+  function seevalue(){
+  
+  let f=firstname.value;
+  let m= middlename.value;
+  let l= lastname.value;
+
+
+  alert(f+ " "+ m+ ""+l);
+
+  console.log(f,m,l);
+
+
+  }
+
+
+  return (
+    <div className='App'>
+      
+      <input ref={(e)=>firstname=e} placeholder="first name"/> <br/>
+      <input ref={(e)=>middlename=e} placeholder="Midle name"/> <br/>
+       <input ref={(e)=>lastname=e} placeholder="last name"/> <br/> <br/>
+
+       <button onClick={seevalue}>click to see</button>
+
+    </div>
+  );
+}
+
+
+export default App;
