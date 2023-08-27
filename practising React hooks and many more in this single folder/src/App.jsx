@@ -1,87 +1,77 @@
-import { useState } from "react";
 
-function App() {
-
+import { useState,useEffect } from "react";
 
 
-  const [Forminput,setForminput]= useState({
 
 
-    Fname: "",
-    Lname: "",
-    city: "",
-    Gender:""
-})
+const App=()=>{
   
 
-   const onInputChange=(property,value)=>{
+  const[data,setData]= useState();
+
+  const[newdata,setNewData]= useState();
 
 
-    setForminput(preobj=>({
+  //fething data using promise
 
-      ...preobj, [property]:value
-    }))
-
-
-   }
-
-   const FormSubmit=(e)=>{
-
-    e.preventDefault();
+  useEffect(()=>{
 
 
-   }
+    fetch("https://jsonplaceholder.typicode.com/todos")
+    .then(res=>res.json())
+    .then(json=>setData(json))
 
 
-  return (
+  },[])
+   
 
+  
+  //fetching data using async wait
+  useEffect(()=>{
 
-
-    <div className="container">
-        
-
-
-        <h1>First name is:- {Forminput.Fname} <br/> last name is:- {Forminput.Lname}</h1>
-        <h3>City is:- {Forminput.city}</h3>
-
-        <p>Gender:- {Forminput.Gender}</p>
-
-
-    <form onSubmit={FormSubmit} action="">
-
-    <input onChange={(e)=>{onInputChange("Fname",e.target.value)}} value={Forminput.Fname} placeholder="First Name" /> <br />
-    <input  onChange={(e)=>{onInputChange("Lname",e.target.value)}}  value={Forminput.Lnamae} placeholder="Last Name" /> <br />
-
-    <select onChange={(e)=>{onInputChange("city",e.target.value)}} value={Forminput.city}>
-       
-       <option value=''>Select City</option>
-       <option value="Dhaka">Dhaka</option>
-       <option value="Chittagong">Chittagong</option>
-       <option value="kumilla">Kumilla</option>
-     </select>
  
- <br />
+    //creating a imidiate envoked function
+    (async()=>{
 
- <input onChange={()=>{onInputChange("Gender","Male")}} checked={Forminput.Gender==="Male"} type="radio" name="Gender"/>Male 
+         let response = await  fetch("https://jsonplaceholder.typicode.com/photos");
 
- <input onChange={()=>{onInputChange("Gender","Female")}} checked={Forminput.Gender==="Female"} type="radio" name="Gender" />Female <br />
+         let json= await response.json();
 
- <button>submit</button>
-
-
-
-
-    </form>
-
-
-      
-      
-
-    </div>
+         setNewData(json);
 
 
 
-  )
+    })()
+
+
+
+  },[])
+
+
+
+
+
+
+return(
+
+
+
+<div>
+
+    {
+    
+    
+    // JSON.stringify(data)
+    JSON.stringify(newdata)
+    
+    }
+
+
+</div>
+
+
+)
+
 }
 
 export default App;
