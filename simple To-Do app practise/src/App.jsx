@@ -1,68 +1,87 @@
 import { useState } from "react";
 
 function App() {
-  const [list, setList] = useState([]);
-  const [item, setItem] = useState("");
 
 
 
-  const addTolist = () => {
-    list.push(item);
-
-    setList([...list]);
-         
-    
-  };
+  const [Forminput,setForminput]= useState({
 
 
-  const removeItem=(index)=>{
+    Fname: "",
+    Lname: "",
+    city: "",
+    Gender:""
+})
+  
 
-      
-    list.splice(index,1);
-
-    setList([...list])
+   const onInputChange=(property,value)=>{
 
 
+    setForminput(preobj=>({
 
-  }
+      ...preobj, [property]:value
+    }))
+
+
+   }
+
+   const FormSubmit=(e)=>{
+
+    e.preventDefault();
+
+
+   }
+
 
   return (
-    <div>
+
+
+
+    <div className="container">
+        
+
+
+        <h1>First name is:- {Forminput.Fname} <br/> last name is:- {Forminput.Lname}</h1>
+        <h3>City is:- {Forminput.city}</h3>
+
+        <p>Gender:- {Forminput.Gender}</p>
+
+
+    <form onSubmit={FormSubmit} action="">
+
+    <input onChange={(e)=>{onInputChange("Fname",e.target.value)}} value={Forminput.Fname} placeholder="First Name" /> <br />
+    <input  onChange={(e)=>{onInputChange("Lname",e.target.value)}}  value={Forminput.Lnamae} placeholder="Last Name" /> <br />
+
+    <select onChange={(e)=>{onInputChange("city",e.target.value)}} value={Forminput.city}>
+       
+       <option value=''>Select City</option>
+       <option value="Dhaka">Dhaka</option>
+       <option value="Chittagong">Chittagong</option>
+       <option value="kumilla">Kumilla</option>
+     </select>
  
+ <br />
 
-  <h1>My simple To do App</h1>
-      <table>
-        <tbody>
+ <input onChange={()=>{onInputChange("Gender","Male")}} checked={Forminput.Gender==="Male"} type="radio" name="Gender"/>Male 
 
-          {list.length !== 0 ? (
+ <input onChange={()=>{onInputChange("Gender","Female")}} checked={Forminput.Gender==="Female"} type="radio" name="Gender" />Female <br />
 
-            list.map((listitem, index) => {
-              return (
-                <tr>
-                  <td>{listitem}</td>
+ <button>submit</button>
 
-                  <td>
-                    <button onClick={(index)=>{ removeItem(index)}}>Remove</button>
-                  </td>
-                </tr>
-              );
-            })
-          ) : (
-            <tr></tr>
-          )}
-        </tbody>
-      </table>
 
-      <input
-        onChange={(event) => {
-          setItem(event.target.value);
-        } }
-        placeholder="Enter the item"
-      />
 
-      <button onClick={addTolist}>Add</button>
+
+    </form>
+
+
+      
+      
+
     </div>
-  );
+
+
+
+  )
 }
 
 export default App;
