@@ -1,0 +1,21 @@
+[
+    {
+      "id": 1,
+      "type": "Basic",
+      "price": 29.99,
+      "features": ["Gym Access", "Limited Classes"]
+    },
+    {
+      "id": 2,
+      "type": "Standard",
+      "price": 49.99,
+      "features": ["Full Access", "Unlimited Classes", "Trainer Consultation"]
+    },
+    {
+      "id": 3,
+      "type": "Premium",
+      "price": 79.99,
+      "features": ["Full Access", "Unlimited Classes", "Personal Training", "Sauna & Spa"]
+    }
+  ]
+  
