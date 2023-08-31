@@ -19,7 +19,7 @@ const Navbar = () => {
 
     return (
         
-        <nav className="py-4 px-4 w-full">
+        <nav className="">
 
             <div onClick={()=> { setisOpen(!isopen)}}className="md:hidden">
 
