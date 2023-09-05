@@ -1,0 +1,9 @@
+.frs{
+
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #0B243A;
+    color:white;
+    border-radius: 5px;
+    padding: 5px;
+}
