@@ -1,0 +1,12 @@
+.tshirts{
+
+    border: 1px solid gainsboro;
+    border-radius: 15px;
+    padding: 10px;
+    margin: 5px 5px;
+}
+
+.tshirts img{
+
+    height: 250px;
+}
